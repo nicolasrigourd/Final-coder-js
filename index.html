@@ -3,17 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="style.css">
     <title>Login</title>
 </head>
 <body>
     <header></header>
     <main>
-        <div class="ingreso">
-            <input type="text"  id="usuario">
-            <input type="password" id="clave">
-            <button type="submit"  id="registrarse">Registrarse</button>
-            <button type="submit"  id="ingresar">Ingresar</button>
+        <div class="formulario">
+            <form id="formularioIngreso">
+                <label for="usuario">Ingresa tu nombre de usuario:</label>
+                <input type="text" id="usuario" placeholder="Nombre de usuario" required>
+
+                <label for="clave">Ingresa tu contraseña (4 dígitos):</label>
+                <input type="password" id="clave" placeholder="Contraseña" maxlength="4" required>
+
+                <button type="submit" id="ingresar">Iniciar sesión</button>
+            </form>
+
+            <!-- Mensaje de error (se mostrará si las credenciales son incorrectas) -->
+            <p id="mensajeError" style="color: red;"></p>
+
+            <p>¿No estás registrado? <a href="registro.html">¡Regístrate aquí!</a></p>
         </div>
     </main>
     <footer></footer>
