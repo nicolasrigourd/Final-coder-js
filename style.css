@@ -1,44 +1,9 @@
-
 *{
     margin: 0;
     padding: 0;
     box-sizing:border-box;
 }/*
-.body-home{
-    background-color: rgb(255, 255, 255);
-    h1{
-    text-align: center;
-    color: rgb(30, 120, 199);
-    text-shadow: 10px solid gray;
-        
-    }
-}*/
-/*
-.nav-home{
-    background-color:rgb(255, 255, 255) ;
-    box-shadow: 0px 5px 15px rgb(238, 235, 235);
-   ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    text-decoration: none;
-    padding: 25px;
-    margin-bottom: 15px;   
-   }
-   li{
-    list-style: none;
-    font-size: 1.1rem;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   }
-}*/
 
-/* Estilos generales del navbar */
-/*
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-*/
 
 /* Estilo general para el body */
 .body-index {
@@ -276,38 +241,8 @@ button {
 button:hover {
     background-color: #45a049;
 }
-/*
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Navbar principal */
 
 
-
-.search{
-    display: flex;
-   margin-top: 60px;
-   align-items: center;
-   justify-content: center;
-  
-   label{
-    margin-right: 17px;
-    padding: 30px;
-   }
-    input{
-        border-radius: 15px;
-        padding: 10px 120px 10px 120px;
-        
-        border: 0cap;
-        box-shadow: 0px 1px 8px rgba(125, 121, 121, 0.779)  ;
-    }
-}
 
 /* Estilos para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
@@ -351,7 +286,7 @@ button:hover {
 }
 
 .carrusel h2 {
-    margin-top: 40px;
+    margin-top: 120px;
     font-size: 24px;
     margin-bottom: 20px;
 }
@@ -364,40 +299,6 @@ button:hover {
     border-radius: 15px;
 }
 
-.productos {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.producto {
-    width: 250px;
-    margin-right: 20px;
-    text-align: center;
-}
-
-.producto img {
-    width: 70%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.producto h3 {
-    font-size: 20px;
-    margin: 10px 0;
-}
-
-.producto p {
-    font-size: 14px;
-    color: #555;
-}
-
-.producto span {
-    font-size: 18px;
-    color: #333;
-    font-weight: bold;
-    display: block;
-    margin: 10px 0;
-}
 
 .agregar-carrito {
     background-color: #28a745;
@@ -437,13 +338,7 @@ button:hover {
 }
 
 
-/* Estilos para la sección del carrusel */
-/*
-.carrusel {
-    position: relative;
-    margin: 40px auto;
-    width: 80%; 
-}
+
 
 /* Estilo para los contenedores de los productos */
 .productos {
@@ -746,4 +641,4 @@ button:hover {
 
 .carrito-acciones button:hover {
     background-color: #45a049;
-}
+} 

@@ -42,29 +42,53 @@ document.addEventListener('DOMContentLoaded', () => {
 //=========================  REGISTRO  ===================================
 document.addEventListener('DOMContentLoaded', () => {
     const formRegistro = document.getElementById('formRegistro');
-    
+    const usuarioInput = document.getElementById('usuario');
+    const claveInput = document.getElementById('clave');
+    const errorMensaje = document.getElementById('errorMensaje'); // Elemento donde mostraremos los errores
+
     // Función para registrar el usuario
     formRegistro.addEventListener('submit', (e) => {
         e.preventDefault(); // Evitar que el formulario se envíe de la manera tradicional
 
         // Obtener los valores de los inputs
-        const usuario = document.getElementById('usuario').value;
-        const clave = document.getElementById('clave').value;
+        const usuario = usuarioInput.value.trim();
+        const clave = claveInput.value.trim();
 
+        // Limpiar cualquier mensaje de error previo
+        errorMensaje.textContent = '';
+        
         // Verificar si los campos no están vacíos
-        if (usuario && clave) {
-            // Guardar los datos en el localStorage
-            localStorage.setItem('usuario', usuario);
-            localStorage.setItem('clave', clave);
-
-            // Informar al usuario que el registro fue exitoso
-            alert('¡Registro exitoso! Ahora puedes iniciar sesión.');
-
-            // Redirigir al login (puedes eliminar esta línea si no quieres la redirección)
-            window.location.href = 'index.html';
-        } else {
-            // Si los campos están vacíos, mostrar un mensaje de error
-            alert('Por favor, completa todos los campos.');
+        if (!usuario || !clave) {
+            errorMensaje.textContent = 'Por favor, completa todos los campos.';
+            return;
         }
+
+        // Verificar si la contraseña tiene al menos 4 caracteres
+        if (clave.length < 4) {
+            errorMensaje.textContent = 'La contraseña debe tener al menos 4 caracteres.';
+            return;
+        }
+
+        // Verificar si el usuario ya existe en localStorage
+        if (localStorage.getItem('usuario') === usuario) {
+            errorMensaje.textContent = 'Este nombre de usuario ya está registrado.';
+            return;
+        }
+
+        // Guardar los datos en el localStorage (se puede considerar mejorar esto a un sistema de almacenamiento más seguro)
+        localStorage.setItem('usuario', usuario);
+        localStorage.setItem('clave', clave);
+
+        // Mostrar un mensaje de éxito en el formulario
+        const successMensaje = document.createElement('div');
+        successMensaje.textContent = '¡Registro exitoso! Ahora puedes iniciar sesión.';
+        successMensaje.style.color = 'green';
+        successMensaje.style.marginTop = '10px';
+        formRegistro.appendChild(successMensaje);
+
+        // Redirigir al login después de un breve tiempo (para mostrar el mensaje de éxito)
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 2000); // Redirige después de 2 segundos
     });
 });
