@@ -29,7 +29,7 @@
         "categoria":"bebidas alcoholicas"
     },
     {
-        "id": 3,
+        "id": 4,
         "nombre": "Alfajor Bonobon",
         "descripcion": "Alfajor triple",
         "img": "../img/bonobon.png",
