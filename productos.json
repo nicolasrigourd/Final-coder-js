@@ -13,7 +13,7 @@
         "id": 2,
         "nombre": "Alfajor Aguila",
         "descripcion": "Mini alfajor chocolate",
-        "img": "../img/aguila.png",
+        "img": "img/aguila.png",
         "precio": 150,
         "stock" :100,
         "categoria":"golosinas"
