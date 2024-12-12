@@ -13,8 +13,9 @@
         <nav class="navbar">
             <div class="logo">
                 <img src="Diseño sin título (1).png" alt="Logo" class="logo-img">
-                <a href="#">Hola Carolina</a>
+                <span id="saludo-usuario"></span> 
             </div>
+            
             <ul class="nav-links">
                 <li><a href="productos" id="openModalBtn">Productos</a></li>
                 <li><a href="#ofertas">Ofertas</a></li>
@@ -36,13 +37,13 @@
     </header>
 
     <main>
- <!-- Modal del Carrito -->
+ <!-- Modal del Carrito--> 
 <div id="carritoModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeCarritoBtn">&times;</span>
         <h2>Carrito de Compras</h2>
         <div id="carritoProductos" class="productos-en-carrito">
-            <!-- Productos del carrito se cargarán aquí -->
+            
         </div>
         <div class="carrito-total">
             <p><strong>Total:</strong> $<span id="totalCarrito">0</span></p>
@@ -54,6 +55,17 @@
     </div>
 </div>
 
+
+
+<!-- Modal para elegir el método de envío -->
+<div id="metodoEnvioModal" class="metodo-envio-modal" style="display: none;">
+    <div class="metodo-envio-contenido">
+        <h2>¿Cómo deseas recibir tu pedido?</h2>
+        <button id="retiroBtn">Retiro en el local</button>
+        <button id="envioBtn">Envío a domicilio</button>
+        <button onclick="cerrarMetodoEnvio()">Cancelar</button>
+    </div>
+</div>
 
         <section class="carrusel">
             <h2>Golosinas</h2>
@@ -112,7 +124,7 @@
             <p>&copy; 2024 Tu Sitio. Todos los derechos reservados.</p>
         </div>
     </footer>
-
+    <script src="java.js"></script>
     <script src="productos.js"></script>
     <script src="carrusel.js"></script>
     <script src="carrito.js"></script>

@@ -32,6 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    const saludo = document.getElementById('saludo-usuario');  // Seleccionamos el span donde se mostrará el saludo
+
+    // Obtener el nombre del usuario desde el localStorage y mostrarlo en el saludo
+    const usuario = localStorage.getItem('usuario');
+    saludo.textContent = `Hola ${usuario}`;  // Añadimos el saludo con el nombre del usuario
+});
 
 
 
@@ -41,10 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //=========================  REGISTRO  ===================================
 document.addEventListener('DOMContentLoaded', () => {
-    const formRegistro = document.getElementById('formRegistro');
-    const usuarioInput = document.getElementById('usuario');
-    const claveInput = document.getElementById('clave');
-    const errorMensaje = document.getElementById('errorMensaje'); // Elemento donde mostraremos los errores
+    const formRegistro = document.getElementById('formRegistro');  // Corregí el ID del formulario
+    const usuarioInput = document.getElementById('usuario-reg');
+    const claveInput = document.getElementById('clave-reg');
+    const errorMensaje = document.getElementById('errorMensaje'); // Ahora sí existe el elemento en HTML
 
     // Función para registrar el usuario
     formRegistro.addEventListener('submit', (e) => {
@@ -56,18 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Limpiar cualquier mensaje de error previo
         errorMensaje.textContent = '';
-        
-        // Verificar si los campos no están vacíos
-        if (!usuario || !clave) {
-            errorMensaje.textContent = 'Por favor, completa todos los campos.';
-            return;
-        }
-
-        // Verificar si la contraseña tiene al menos 4 caracteres
-        if (clave.length < 4) {
-            errorMensaje.textContent = 'La contraseña debe tener al menos 4 caracteres.';
-            return;
-        }
 
         // Verificar si el usuario ya existe en localStorage
         if (localStorage.getItem('usuario') === usuario) {
@@ -75,7 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Guardar los datos en el localStorage (se puede considerar mejorar esto a un sistema de almacenamiento más seguro)
+        // Verificar que el nombre de usuario y la contraseña no estén vacíos
+        if (usuario === '' || clave === '') {
+            errorMensaje.textContent = 'Por favor, completa todos los campos.';
+            return;
+        }
+
+        // Guardar los datos en el localStorage
         localStorage.setItem('usuario', usuario);
         localStorage.setItem('clave', clave);
 
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Redirigir al login después de un breve tiempo (para mostrar el mensaje de éxito)
         setTimeout(() => {
-            window.location.href = 'index.html';
-        }, 2000); // Redirige después de 2 segundos
+            window.location.href = 'index.html';  
+        }, 1500); // La redirección ocurre después de 1.5 segundos
     });
 });

@@ -10,19 +10,21 @@
     <!-- Contenedor principal de la página de registro -->
     <div class="formulario">
         <h2>Registro</h2>
-        <form id="formRegistro">
-            <div class="form-group">
-                <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" name="usuario" required>
-            </div>
-            <div class="form-group">
-                <label for="clave">Contraseña:</label>
-                <input type="password" id="clave" name="clave" required>
-            </div>
-            <div id="mensaje-error" class="error-message"></div>
-            <button type="submit">Registrarse</button>
+        
+        <form id="formRegistro"> <!-- Cambié el ID aquí para que coincida con tu JavaScript -->
+            <label for="usuario">Elije tu nombre de usuario:</label>
+            <input class="input-index-u" id="usuario-reg" placeholder="Nombre de usuario" required>
+
+            <label for="clave">Elije una clave (4 dígitos):</label>
+            <input class="input-index-cl" id="clave-reg" placeholder="Contraseña" maxlength="4" required>
+
+            <button class="submit" id="ingresar">Registrarse</button>
         </form>
-        <p>¿Ya tienes una cuenta? <a href="index.html">Inicia sesión aquí</a></p>
+
+        <!-- Mensajes de error -->
+        <p id="errorMensaje" style="color: red;"></p> <!-- Agregado para mostrar mensajes de error -->
+
+        <p>¿Ya tienes una cuenta? <a href="index.html">Inicia sesión aquí</a></p> 
     </div>
 
     <script src="java.js"></script>

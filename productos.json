@@ -36,6 +36,23 @@
         "precio": 200,
         "stock" :100,
         "categoria":"limpieza"
-    }
-    
-]
+    },
+    {
+        "id": 5,
+        "nombre": "Alfajor Aguila",
+        "descripcion": "Mini alfajor chocolate",
+        "img": "img/aguila.png",
+        "precio": 150,
+        "stock" :100,
+        "categoria":"golosinas"
+    },
+ {
+    "id": 6,
+    "nombre": "Alfajor Aguila",
+    "descripcion": "Mini alfajor chocolate",
+    "img": "img/aguila.png",
+    "precio": 150,
+    "stock" :100,
+    "categoria":"golosinas"
+}
+ ]

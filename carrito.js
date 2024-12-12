@@ -1,3 +1,5 @@
+
+
 // Carrito en LocalStorage
 const carrito = JSON.parse(localStorage.getItem('carrito')) || [];  // Cargar carrito si existe, si no, array vacío
 
@@ -57,7 +59,7 @@ continuarComprandoBtn.addEventListener('click', () => {
 
 // Finalizar compra (resetear carrito por simplicidad)
 finalizarCompraBtn.addEventListener('click', () => {
-    alert('Gracias por tu compra!');  // Simulación de finalizar compra
+   
     localStorage.removeItem('carrito');  // Limpiar carrito en localStorage
     carrito.length = 0;  // Limpiar carrito
     actualizarCantidadCarrito();  // Actualizar cantidad en el icono
@@ -116,4 +118,45 @@ function eliminarProductoDelCarrito(productoId) {
         mostrarProductosEnCarrito();
     }
 }
+
+
+/*============================== ENVIO O RETIRO ====================*/
+
+ //Agregar nuevo modal o banner para elegir método de envío
+const metodoEnvioModal = document.getElementById('metodoEnvioModal');
+const retiroBtn = document.getElementById('retiroBtn');
+const envioBtn = document.getElementById('envioBtn');
+
+// Función para mostrar el banner de métodos de envío
+function mostrarMetodoEnvio() {
+    metodoEnvioModal.style.display = 'flex';  // Mostrar el banner
+}
+
+// Función para ocultar el banner de métodos de envío
+function cerrarMetodoEnvio() {
+    metodoEnvioModal.style.display = 'none';  // Cerrar el banner
+}
+
+// Acción cuando se elige "Retiro en el local"
+retiroBtn.addEventListener('click', () => {
+    alert('¡Has elegido retiro en el local!');  // Simulación de acción
+    cerrarMetodoEnvio();  // Cerrar el banner
+});
+
+// Acción cuando se elige "Envío a domicilio"
+envioBtn.addEventListener('click', () => {
+    alert('¡Envío a domicilio seleccionado!');  // Simulación de acción
+    cerrarMetodoEnvio();  // Cerrar el banner
+});
+
+// Función para finalizar compra
+finalizarCompraBtn.addEventListener('click', () => {
+    // Mostrar el banner de métodos de envío
+    mostrarMetodoEnvio();
+    carritoModal.style.display = 'none';  // Cerrar el carrito modal
+})
+
+
+
+
 
