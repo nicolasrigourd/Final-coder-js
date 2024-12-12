@@ -116,3 +116,11 @@ function gestionarCarrusel() {
 document.addEventListener('DOMContentLoaded', function () {
     cargarProductos();  // Cargar los productos desde el archivo JSON
 });
+
+
+
+
+
+
+
+

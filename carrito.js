@@ -120,41 +120,62 @@ function eliminarProductoDelCarrito(productoId) {
 }
 
 
-/*============================== ENVIO O RETIRO ====================*/
+/*============================== MODAL FINAL DE COMPRA ====================*/
 
- //Agregar nuevo modal o banner para elegir método de envío
-const metodoEnvioModal = document.getElementById('metodoEnvioModal');
-const retiroBtn = document.getElementById('retiroBtn');
-const envioBtn = document.getElementById('envioBtn');
 
-// Función para mostrar el banner de métodos de envío
-function mostrarMetodoEnvio() {
-    metodoEnvioModal.style.display = 'flex';  // Mostrar el banner
+// Función para abrir el modal de Resumen de Compra
+
+function abrirResumenCompraModal() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const resumenCompraModal = document.getElementById('resumenCompraModal');
+    const productosCarrito = document.getElementById('productosCarrito');
+    const totalResumenCarrito = document.getElementById('totalResumenCarrito');
+
+    // Limpiar productos anteriores
+    productosCarrito.innerHTML = '';
+
+    // Si el carrito está vacío, mostrar mensaje
+    if (carrito.length === 0) {
+        productosCarrito.innerHTML = '<p>Tu carrito está vacío.</p>';
+        totalResumenCarrito.textContent = '0';
+    } else {
+        // Mostrar productos del carrito
+        let total = 0;
+        carrito.forEach(producto => {
+            const productoDiv = document.createElement('div');
+            productoDiv.classList.add('producto-en-carrito');
+            productoDiv.innerHTML = `
+                <span>${producto.nombre} (x${producto.cantidad})</span>
+                <span>$${(producto.precio * producto.cantidad).toFixed(2)}</span>
+            `;
+            productosCarrito.appendChild(productoDiv);
+            total += parseFloat(producto.precio) * producto.cantidad; // Sumar el precio total
+        });
+        
+        totalResumenCarrito.textContent = total.toFixed(2); // Mostrar total
+    }
+
+    resumenCompraModal.style.display = 'flex';  // Mostrar el modal
 }
 
-// Función para ocultar el banner de métodos de envío
-function cerrarMetodoEnvio() {
-    metodoEnvioModal.style.display = 'none';  // Cerrar el banner
+// Función para cerrar el modal de Resumen de Compra
+function cerrarResumenCompra() {
+    const resumenCompraModal = document.getElementById('resumenCompraModal');
+    resumenCompraModal.style.display = 'none';  // Cerrar el modal
 }
 
-// Acción cuando se elige "Retiro en el local"
-retiroBtn.addEventListener('click', () => {
-    alert('¡Has elegido retiro en el local!');  // Simulación de acción
-    cerrarMetodoEnvio();  // Cerrar el banner
+// Eventos de botones
+document.getElementById('pagoEfectivoBtn').addEventListener('click', () => {
+    alert('Has elegido pagar en efectivo');
+    cerrarResumenCompra();
 });
 
-// Acción cuando se elige "Envío a domicilio"
-envioBtn.addEventListener('click', () => {
-    alert('¡Envío a domicilio seleccionado!');  // Simulación de acción
-    cerrarMetodoEnvio();  // Cerrar el banner
+document.getElementById('pagoMercadoPagoBtn').addEventListener('click', () => {
+    alert('Has elegido pagar con MercadoPago');
+    cerrarResumenCompra();
 });
 
-// Función para finalizar compra
-finalizarCompraBtn.addEventListener('click', () => {
-    // Mostrar el banner de métodos de envío
-    mostrarMetodoEnvio();
-    carritoModal.style.display = 'none';  // Cerrar el carrito modal
-})
+document.getElementById('closeResumenCompraBtn').addEventListener('click', cerrarResumenCompra);
 
 
 
