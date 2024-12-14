@@ -1,4 +1,5 @@
 
+
 // Función para cargar los productos desde el archivo JSON
 function cargarProductos() {
     fetch('productos.json')
@@ -28,7 +29,7 @@ function cargarProductos() {
                 // Distribuir los productos según su categoría
                 if (producto.categoria === 'golosinas') {
                     contenedorGolosinas.appendChild(productoDiv);
-                } else if (producto.categoria === 'bebidas alcoholicas') {
+                } else if (producto.categoria === 'bebidas') {
                     contenedorBebidas.appendChild(productoDiv);
                 }
             });
@@ -41,8 +42,9 @@ function cargarProductos() {
         });
 }
 
-// Función para gestionar el carrusel
+// Función para gestionar los carruseles
 function gestionarCarrusel() {
+    // Seleccionamos ambos carruseles
     const carruseles = document.querySelectorAll('.carrusel-contenedor');
 
     carruseles.forEach(carrusel => {
@@ -51,11 +53,12 @@ function gestionarCarrusel() {
         const productosContenedor = carrusel.querySelector(".productos");
 
         let posicion = 0;
+        const productosPorVista = 4; // Número de productos visibles a la vez
         const totalProductos = productosContenedor.children.length;
-        const intervalTime = 3000; // 3 segundos para el carrusel automático
+        const intervaloTime = 3000; // 3 segundos para el carrusel automático
         let intervalo;
 
-        // Función para mover el carrusel hacia atrás
+        // Función para mover el carrusel hacia atrás (un solo producto)
         prevButton.addEventListener("click", function () {
             if (posicion > 0) {
                 posicion--;
@@ -63,9 +66,9 @@ function gestionarCarrusel() {
             }
         });
 
-        // Función para mover el carrusel hacia adelante
+        // Función para mover el carrusel hacia adelante (un solo producto)
         nextButton.addEventListener("click", function () {
-            if (posicion < totalProductos - 1) {
+            if (posicion < totalProductos - productosPorVista) {
                 posicion++;
                 actualizarCarrusel();
             }
@@ -73,13 +76,14 @@ function gestionarCarrusel() {
 
         // Función para actualizar la posición del carrusel
         function actualizarCarrusel() {
-            productosContenedor.style.transform = `translateX(-${posicion * 270}px)`; // Ajustar el desplazamiento según el tamaño
+            productosContenedor.style.transform = `translateX(-${posicion * 270}px)`; // Ajuste para mover un solo producto
         }
 
         // Función para mover el carrusel de manera automática
         function moverAutomatico() {
-            posicion++;
-            if (posicion >= totalProductos) {
+            if (posicion < totalProductos - productosPorVista) {
+                posicion++;
+            } else {
                 posicion = 0; // Reiniciar al principio
             }
             actualizarCarrusel();
@@ -87,7 +91,7 @@ function gestionarCarrusel() {
 
         // Iniciar el carrusel automático
         function iniciarCarrusel() {
-            intervalo = setInterval(moverAutomatico, intervalTime);
+            intervalo = setInterval(moverAutomatico, intervaloTime);
         }
 
         // Detener el carrusel cuando el mouse se posa sobre un producto
@@ -116,11 +120,3 @@ function gestionarCarrusel() {
 document.addEventListener('DOMContentLoaded', function () {
     cargarProductos();  // Cargar los productos desde el archivo JSON
 });
-
-
-
-
-
-
-
-

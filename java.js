@@ -93,3 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500); // La redirección ocurre después de 1.5 segundos
     });
 });
+
+
+

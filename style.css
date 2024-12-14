@@ -279,9 +279,11 @@ a:hover {
 }
 
 .carrusel h2 {
-    margin-top: 120px;
-    font-size: 24px;
+    margin-top: 70px;
+    font-size: 4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 20px;
+    text-shadow:0px 5px 15px grey
 }
 
 .carrusel-contenedor {
@@ -290,8 +292,8 @@ a:hover {
     overflow: hidden;
     background-color: rgba(237, 233, 233, 0.589);
     border-radius: 15px;
+    width: 100%;  /* Aseguramos que el carrusel ocupe el 100% del ancho disponible */
 }
-
 
 .carrusel-prev, .carrusel-next {
     position: absolute;
@@ -299,49 +301,42 @@ a:hover {
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
-    border : 2px solid #fff; 
+    border: 2px solid #fff;
     font-size: 30px;
     padding: 15px;
     cursor: pointer;
     border-radius: 50%;
-    transition: all 0.3s ease; /* Transición suave para hover */
+    transition: all 0.3s ease;
     z-index: 10;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-   }
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 .carrusel-prev:hover, .carrusel-next:hover {
-    background-color: #fff; /* Fondo blanco al pasar el cursor */
+    background-color: #fff;
     color: #333;
-    transform: translateY(-50%) scale(1.1); 
-   }
+    transform: translateY(-50%) scale(1.1);
+}
 
 .carrusel-prev {
-    left: 10px; 
+    left: 10px;
 }
 
 .carrusel-next {
-    right: 10px; 
+    right: 10px;
 }
 
-.carrusel-prev, .carrusel-next {
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-
-/* ================== PRODUCTOS ========================================== */
+/* ================== PRODUCTOS ========================== */
 
 .productos {
     display: flex;
-    flex-wrap: wrap;  /* Para que los productos se distribuyan bien en pantallas pequeñas */
-    gap: 20px;  /* Espacio entre los productos */
-    justify-content: center;  /* Centrar los productos */
+    gap: 20px;
     transition: transform 0.5s ease-in-out;
     will-change: transform;
+    width: max-content;  /* Permite que los productos se alineen horizontalmente */
 }
 
 .producto {
-    width: 250px;  
-    margin: 0 auto;  
+    width: 250px;
     transition: transform 0.3s ease;
     flex-shrink: 0;
     position: relative;
@@ -350,18 +345,18 @@ a:hover {
     border-radius: 10px;
     background-color: white;
     display: flex;
-    flex-direction: column;  
-    align-items: center;  
-    text-align: center;  
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .producto img {
-    width: 100%;  
-    max-height: 200px; 
-    object-fit: cover; 
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 15px;  
+    margin-bottom: 15px;
 }
 
 .producto h3 {
@@ -379,7 +374,7 @@ a:hover {
 .producto span {
     font-size: 16px;
     font-weight: bold;
-    color: #28a745;  
+    color: #28a745;
     margin-bottom: 15px;
 }
 
@@ -399,10 +394,28 @@ a:hover {
 }
 
 .producto:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
     z-index: 2;
 }
 
+/*================== PRIMER BANNER================*/
+/* Estilos para el contenedor del banner */
+.banner {
+    margin-top: 40px;
+    width: 100%;           /* Ocupa el 100% del ancho de la pantalla */
+    height: 400px;         
+    overflow: hidden;      
+    position: relative;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+}
+
+/* Estilos para la imagen dentro del contenedor */
+.banner img {
+    width: 100%;           /* La imagen se ajusta al ancho del contenedor */
+    height: 100%;          /* La imagen se ajusta a la altura del contenedor */
+    object-fit: cover;     /* La imagen se recorta si es necesario para cubrir todo el contenedor sin distorsionarse */
+}
 
 
 
@@ -501,3 +514,167 @@ a:hover {
 
 
 
+/*====================== checkout==========================*/
+/*======================= MODAL DE CHECKOUT ==============================*/
+/* Estilos para el modal de resumen de compra */
+#checkoutModal {
+    display: none; /* El modal está oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+#checkoutModal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el botón de cerrar */
+#checkoutModal .close {
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#checkoutModal .close:hover {
+    color: black;
+}
+
+/* Estilo para los productos en el resumen de compra */
+#resumenCompraProductos {
+    margin-top: 20px;
+}
+
+.producto-en-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.producto-en-carrito img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.total-compra {
+    margin-top: 20px;
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Estilos para el formulario de información del comprador */
+.formulario-compra {
+    margin-top: 20px;
+}
+
+.formulario-compra label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.formulario-compra input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.formulario-compra input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Estilos para los métodos de pago */
+.metodos-de-pago {
+    margin-top: 20px;
+}
+
+.metodos-de-pago h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.metodos-de-pago label {
+    display: block;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.metodos-de-pago input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Botón de confirmar compra */
+#confirmarCompraBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#confirmarCompraBtn:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+/* Modal de Agradecimiento */
+#modalGracias {
+    display: none; /* El modal está oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+}
+
+#modalGracias .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#modalGracias h2 {
+    color: #4CAF50; /* Color verde para el título */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#modalGracias p {
+    font-size: 18px;
+    color: #333;
+}

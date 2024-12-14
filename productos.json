@@ -6,7 +6,7 @@
         "nombre": "Doritos",
         "descripcion": "Doritos Queso Feugo",
         "img": "https://e39a9f00db6c5bc097f9-75bc5dce1d64f93372e7c97ed35869cb.ssl.cf1.rackcdn.com/42809953_2-fo_8ltA4.jpg",
-        "precio": 100, 
+        "precio": 1150, 
         "stock" :100,
         "categoria":"golosinas"
     },
@@ -15,43 +15,124 @@
         "nombre": "Alfajor Aguila",
         "descripcion": "Mini alfajor chocolate",
         "img": "img/aguila.png",
-        "precio": 150,
+        "precio": 750,
         "stock" :100,
         "categoria":"golosinas"
     },
     {
         "id": 3,
-        "nombre": "Alfajor Bonobon",
-        "descripcion": "Alfajor triple",
-        "img": "../img/bonobon.png",
-        "precio": 200,
+        "nombre": "Coca cola",
+        "descripcion": "3 Litros Regular",
+        "img": "./img/coca3.png",
+        "precio": 2350,
         "stock" :100,
-        "categoria":"bebidas alcoholicas"
-    },
-    {
-        "id": 4,
-        "nombre": "Alfajor Bonobon",
-        "descripcion": "Alfajor triple",
-        "img": "../img/bonobon.png",
-        "precio": 200,
-        "stock" :100,
-        "categoria":"limpieza"
+        "categoria":"bebidas"
     },
     {
         "id": 5,
-        "nombre": "Alfajor Aguila",
-        "descripcion": "Mini alfajor chocolate",
-        "img": "img/aguila.png",
-        "precio": 150,
+        "nombre": "Pico dulce",
+        "descripcion": "Multicolor",
+        "img": "img/pico.jpg",
+        "precio": 350,
         "stock" :100,
         "categoria":"golosinas"
     },
  {
     "id": 6,
-    "nombre": "Alfajor Aguila",
-    "descripcion": "Mini alfajor chocolate",
-    "img": "img/aguila.png",
-    "precio": 150,
+    "nombre": "Doritos scream",
+    "descripcion": "Siracha",
+    "img": "./img/doritos-screamin-sriracha-1.jpg",
+    "precio": 1150,
+    "stock" :100,
+    "categoria":"golosinas"
+},
+{
+    "id": 6,
+    "nombre": "Cofler Block",
+    "descripcion": "miti-miti",
+    "img": "./img/coflerblock.jpg",
+    "precio": 1100,
+    "stock" :100,
+    "categoria":"golosinas"
+},
+{
+    "id": 7,
+    "nombre": "Coca Lata",
+    "descripcion": "Coca comun",
+    "img": "./img/cocalata.jpg",
+    "precio": 950,
+    "stock" :100,
+    "categoria":"bebidas"
+},
+{
+    "id": 8,
+    "nombre": "Pepsi lata",
+    "descripcion": "Regular 374 ",
+    "img": "./img/pepsilata.webp",
+    "precio": 970,
+    "stock" :100,
+    "categoria":"bebidas"
+},
+{
+    "id": 9,
+    "nombre": "Energizante spedd",
+    "descripcion": "Clasico",
+    "img": "./img/speed.webp",
+    "precio": 650,
+    "stock" :100,
+    "categoria":"bebidas"
+},
+{
+    "id": 10,
+    "nombre": "Cerveza Corona",
+    "descripcion": "Pack x6",
+    "img": "./img/corona.jpg",
+    "precio": 2350,
+    "stock" :100,
+    "categoria":"bebidas"
+},
+{
+    "id": 11,
+    "nombre": "RedBull",
+    "descripcion": "Orange",
+    "img": "./img/rebbull.webp",
+    "precio": 870,
+    "stock" :100,
+    "categoria":"bebidas"
+},
+{
+    "id": 12,
+    "nombre": "Fanta Naranja",
+    "descripcion": "3 Litros",
+    "img": "./img/fanta3.webp",
+    "precio": 1980,
+    "stock" :100,
+    "categoria":"bebidas"
+},
+{
+    "id": 13,
+    "nombre": "Fanta Naranja",
+    "descripcion": "Bot. 400ml",
+    "img": "./img/fanta400.jpg",
+    "precio": 780,
+    "stock" :100,
+    "categoria":"bebidas"
+},
+{
+    "id": 14,
+    "nombre": "Gomitas Gangys",
+    "descripcion": "Multicolor",
+    "img": "./img/gangys.jpg",
+    "precio": 1300,
+    "stock" :100,
+    "categoria":"golosinas"
+},
+{
+    "id": 15,
+    "nombre": "Cofler Blockazo",
+    "descripcion": "1000 grs",
+    "img": "./img/blockazo.webp",
+    "precio": 6350,
     "stock" :100,
     "categoria":"golosinas"
 }
