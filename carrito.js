@@ -1,5 +1,10 @@
 
 
+
+
+
+
+
 // Carrito en LocalStorage
 const carrito = JSON.parse(localStorage.getItem('carrito')) || [];  // Cargar carrito si existe, si no, array vacío
 
@@ -10,8 +15,10 @@ const carritoModal = document.getElementById('carritoModal');
 const closeCarritoBtn = document.getElementById('closeCarritoBtn');
 const continuarComprandoBtn = document.getElementById('continuarComprandoBtn');
 const finalizarCompraBtn = document.getElementById('finalizarCompraBtn');
+const cancelarResumen =document.getElementById("btnCancelarCompra")
 const carritoProductos = document.getElementById('carritoProductos');
 const totalCarrito = document.getElementById('totalCarrito');
+
 
 // Mostrar cantidad de productos en el icono del carrito
 function actualizarCantidadCarrito() {
@@ -57,14 +64,27 @@ continuarComprandoBtn.addEventListener('click', () => {
     carritoModal.style.display = 'none';  // Cerrar modal
 });
 
-// Finalizar compra (resetear carrito por simplicidad)
+// Finalizar compra 
 finalizarCompraBtn.addEventListener('click', () => {
-   
-    localStorage.removeItem('carrito');  // Limpiar carrito en localStorage
-    carrito.length = 0;  // Limpiar carrito
+    abrirModalResumenCompra();
+    /*localStorage.removeItem('carrito');  // Limpiar carrito en localStorage
+    carrito.length = 0;  // Limpiar carrito*/
     actualizarCantidadCarrito();  // Actualizar cantidad en el icono
     carritoModal.style.display = 'none';  // Cerrar modal
 });
+
+
+
+cancelarResumen.addEventListener("click",()=>{
+     abrirModalResumenCompra()
+    carritoModal.style.display = 'flex'
+    cerrarModalResumenCompra()
+})
+
+
+
+
+
 
 // Función para agregar productos al carrito
 function agregarAlCarrito(producto) {
@@ -82,12 +102,14 @@ function agregarAlCarrito(producto) {
     // Guardar el carrito actualizado en LocalStorage
             localStorage.setItem('carrito', JSON.stringify(carrito));
     actualizarCantidadCarrito();  // Actualizar cantidad de productos en el icono
-}
+};
 
 // Aquí se debe integrar con la lógica de los botones "Agregar al carrito" de los productos en el carrusel
 // Esto lo haremos al interactuar con cada producto
 
 // Ejemplo de cómo agregar productos (esto se deberá conectar con el botón de agregar carrito en los productos)
+
+
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('agregar-carrito')) {
         const producto = {
@@ -108,6 +130,8 @@ document.addEventListener('click', (e) => {
     }
 });
 
+
+
 // Función para eliminar un producto del carrito
 function eliminarProductoDelCarrito(productoId) {
     const index = carrito.findIndex(p => p.id === productoId);
@@ -118,66 +142,6 @@ function eliminarProductoDelCarrito(productoId) {
         mostrarProductosEnCarrito();
     }
 }
-
-
-/*============================== MODAL FINAL DE COMPRA ====================*/
-
-
-// Función para abrir el modal de Resumen de Compra
-
-function abrirResumenCompraModal() {
-        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    const resumenCompraModal = document.getElementById('resumenCompraModal');
-    const productosCarrito = document.getElementById('productosCarrito');
-    const totalResumenCarrito = document.getElementById('totalResumenCarrito');
-
-    // Limpiar productos anteriores
-    productosCarrito.innerHTML = '';
-
-    // Si el carrito está vacío, mostrar mensaje
-    if (carrito.length === 0) {
-        productosCarrito.innerHTML = '<p>Tu carrito está vacío.</p>';
-        totalResumenCarrito.textContent = '0';
-    } else {
-        // Mostrar productos del carrito
-        let total = 0;
-        carrito.forEach(producto => {
-            const productoDiv = document.createElement('div');
-            productoDiv.classList.add('producto-en-carrito');
-            productoDiv.innerHTML = `
-                <span>${producto.nombre} (x${producto.cantidad})</span>
-                <span>$${(producto.precio * producto.cantidad).toFixed(2)}</span>
-            `;
-            productosCarrito.appendChild(productoDiv);
-            total += parseFloat(producto.precio) * producto.cantidad; // Sumar el precio total
-        });
-        
-        totalResumenCarrito.textContent = total.toFixed(2); // Mostrar total
-    }
-
-    resumenCompraModal.style.display = 'flex';  // Mostrar el modal
-}
-
-// Función para cerrar el modal de Resumen de Compra
-function cerrarResumenCompra() {
-    const resumenCompraModal = document.getElementById('resumenCompraModal');
-    resumenCompraModal.style.display = 'none';  // Cerrar el modal
-}
-
-// Eventos de botones
-document.getElementById('pagoEfectivoBtn').addEventListener('click', () => {
-    alert('Has elegido pagar en efectivo');
-    cerrarResumenCompra();
-});
-
-document.getElementById('pagoMercadoPagoBtn').addEventListener('click', () => {
-    alert('Has elegido pagar con MercadoPago');
-    cerrarResumenCompra();
-});
-
-document.getElementById('closeResumenCompraBtn').addEventListener('click', cerrarResumenCompra);
-
-
 
 
 

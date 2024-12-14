@@ -69,10 +69,42 @@
 
 
 
-  
+<!-- Modal Resumen de Compra -->
+<div id="modalResumenCompra" class="modal-resumen-compra">
+    <div class="modal-resumen-compra-content">
+        <!-- Encabezado del modal -->
+        <h2>Resumen de Compra</h2>
 
+        <!-- Carrito de compras (se llenará dinámicamente) -->
+        <div id="carritoResumenCompra">
+            <!-- Aquí se mostrarán los productos del carrito -->
+        </div>
 
+        <!-- Total a pagar -->
+        <div id="totalAPagar" class="total-apagar">
+            <!-- Aquí se mostrará el total -->
+        </div>
 
+        <!-- Formulario con los campos de nombre y teléfono -->
+        <form id="formConfirmarCompra">
+            <div class="form-group-resumen">
+                <label for="nombre">Tu nombre</label>
+                <input type="text" id="nombre" placeholder="¿Quién retirará tu pedido?" required>
+            </div>
+
+            <div class="form-group-resumen">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" placeholder="Ingresa número de teléfono de contacto" required>
+            </div>
+
+            <!-- Botones de Confirmar y Cancelar -->
+            <div class="botones-modal">
+                <button type="submit" id="btnConfirmarCompra">Confirmar</button>
+                <button type="button" id="btnCancelarCompra">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 
 
@@ -154,11 +186,13 @@
             <p>&copy; 2024 Nicolas Rigourd. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <script src="busqueda.js"></script>
-    <script src="checkout.js"></script>
+    
+   
     <script src="java.js"></script>
     <script src="productos.js"></script>
+    <script src="modalResumen.js"></script>
     <script src="carrito.js"></script>
+    <script src="modalfinal.js"></script>
    
     
 </body>

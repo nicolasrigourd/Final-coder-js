@@ -516,9 +516,13 @@ a:hover {
 
 /*====================== checkout==========================*/
 /*======================= MODAL DE CHECKOUT ==============================*/
+
+
 /* Estilos para el modal de resumen de compra */
+
+/*
 #checkoutModal {
-    display: none; /* El modal está oculto por defecto */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
@@ -539,7 +543,7 @@ a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilo para el botón de cerrar */
+
 #checkoutModal .close {
     font-size: 28px;
     font-weight: bold;
@@ -554,7 +558,7 @@ a:hover {
     color: black;
 }
 
-/* Estilo para los productos en el resumen de compra */
+
 #resumenCompraProductos {
     margin-top: 20px;
 }
@@ -579,7 +583,7 @@ a:hover {
     font-weight: bold;
 }
 
-/* Estilos para el formulario de información del comprador */
+
 .formulario-compra {
     margin-top: 20px;
 }
@@ -603,7 +607,7 @@ a:hover {
     outline: none;
 }
 
-/* Estilos para los métodos de pago */
+
 .metodos-de-pago {
     margin-top: 20px;
 }
@@ -623,7 +627,7 @@ a:hover {
     margin-right: 10px;
 }
 
-/* Botón de confirmar compra */
+
 #confirmarCompraBtn {
     margin-top: 20px;
     padding: 10px 20px;
@@ -640,8 +644,137 @@ a:hover {
     background-color: #45a049;
 }
 
+*/
+/*============== ESTILOS MODAL RESUMEN========*/
 
 
+    .modal-resumen-compra {
+        display: none; /* Ocultar modal por defecto */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro */
+    }
+
+    .modal-resumen-compra-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .form-group-resumen {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    .form-group-resumen label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group-resumen input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    #btnConfirmarCompra {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #btnConfirmarCompra:hover {
+        background-color: #45a049;
+    }
+
+    .total-apagar {
+        margin-top: 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #333;
+    }
+
+    #btnCancelarCompra{
+        padding: 10px 20px;
+        background-color: #ee3d3d;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+/*
+    .modal-resumen-compra {
+        display: none; 
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4); 
+    }
+
+    .modal-resumen-compra-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .form-group-resumen {
+        margin-bottom: 15px;
+    }
+
+    .form-group-resumen label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group-resumen input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    #btnConfirmarCompra {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #btnConfirmarCompra:hover {
+        background-color: #45a049;
+    }
+
+*/
 
 
 /* Modal de Agradecimiento */
