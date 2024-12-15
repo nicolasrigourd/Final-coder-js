@@ -2,12 +2,12 @@
 //========================= LOGIN ====================
 
 document.addEventListener('DOMContentLoaded', () => {
-    const formLogin = document.getElementById('formularioIngreso');  // Corregido el ID
-    const mensajeError = document.getElementById('mensajeError'); // Para mostrar el mensaje de error
+    const formLogin = document.getElementById('formularioIngreso');  
+    const mensajeError = document.getElementById('mensajeError'); 
 
     // Función para iniciar sesión
     formLogin.addEventListener('submit', (e) => {
-        e.preventDefault(); // Evitar que el formulario se envíe de la manera tradicional
+        e.preventDefault(); 
 
         // Obtener los valores de los inputs
         const usuarioIngresado = document.getElementById('usuario').value;
@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Validar si los datos ingresados coinciden con los almacenados
         if (usuarioIngresado === usuarioGuardado && claveIngresada === claveGuardada) {
-            // Si los datos son correctos, redirigir a home.html
+            
             window.location.href = 'home.html';
         } else {
-            // Si los datos no coinciden, mostrar mensaje de error
+            
             mensajeError.textContent = 'Usuario o clave incorrectos. Por favor, inténtalo de nuevo.';
             
             // Limpiar el formulario
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const saludo = document.getElementById('saludo-usuario');  // Seleccionamos el span donde se mostrará el saludo
+    const saludo = document.getElementById('saludo-usuario');  
 
     // Obtener el nombre del usuario desde el localStorage y mostrarlo en el saludo
     const usuario = localStorage.getItem('usuario');

@@ -1,14 +1,8 @@
 
-
-
-
-
-
-
 // Carrito en LocalStorage
 const carrito = JSON.parse(localStorage.getItem('carrito')) || [];  // Cargar carrito si existe, si no, array vacío
 
-// Elementos del DOM
+
 const carritoIcon = document.querySelector('.carrito');
 const cantidadProductos = document.querySelector('.cantidad-productos');
 const carritoModal = document.getElementById('carritoModal');
@@ -18,7 +12,7 @@ const finalizarCompraBtn = document.getElementById('finalizarCompraBtn');
 const cancelarResumen =document.getElementById("btnCancelarCompra")
 const carritoProductos = document.getElementById('carritoProductos');
 const totalCarrito = document.getElementById('totalCarrito');
-
+const  confirmarResumen = document.getElementById("btnConfirmarCompra")
 
 // Mostrar cantidad de productos en el icono del carrito
 function actualizarCantidadCarrito() {
@@ -46,17 +40,17 @@ function mostrarProductosEnCarrito() {
     });
 
     totalCarrito.textContent = total.toFixed(2); // Actualizar el total
-}
+};
 
-// Función para abrir el modal
+// Función para abrir el modal con icono carrito
 carritoIcon.addEventListener('click', () => {
-    carritoModal.style.display = 'flex';  // Mostrar modal
-    mostrarProductosEnCarrito();  // Mostrar productos en el carrito
+    carritoModal.style.display = 'flex';  
+    mostrarProductosEnCarrito();  
 });
 
-// Cerrar el modal
+// Cerrar el modal carrito
 closeCarritoBtn.addEventListener('click', () => {
-    carritoModal.style.display = 'none';  // Cerrar modal
+    carritoModal.style.display = 'none'; 
 });
 
 // Continuar comprando (cerrar modal sin hacer nada)
@@ -79,14 +73,37 @@ cancelarResumen.addEventListener("click",()=>{
      abrirModalResumenCompra()
     carritoModal.style.display = 'flex'
     cerrarModalResumenCompra()
-})
+});
 
 
 
+// ============= MODAL GRACIAS=================
+function abrirModalGracias() {
+    var modal = document.getElementById('modalGracias'); // Obtener el modal por su ID
+    modal.style.display = 'flex'; // Hacer visible el modal (cambiar display a block)
+};
+
+function CerrarModalGracias(){
+var modal = document.getElementById("modalGracias");
+modal.style.display = "none";
+};
 
 
+confirmarResumen.addEventListener("click",()=>{
+    abrirModalGracias()
+    cerrarModalResumenCompra()
+    setTimeout(CerrarModalGracias,3000);
 
-// Función para agregar productos al carrito
+localStorage.removeItem('carrito');  
+    carrito.length = 0;  
+    setTimeout(function() {
+        location.reload();  
+    }, 1000);  
+    
+});
+
+
+// Función para agregar productos al carrito (localstorage)
 function agregarAlCarrito(producto) {
     // Verificar si el producto ya existe en el carrito
     const index = carrito.findIndex(p => p.id === producto.id);
@@ -104,11 +121,6 @@ function agregarAlCarrito(producto) {
     actualizarCantidadCarrito();  // Actualizar cantidad de productos en el icono
 };
 
-// Aquí se debe integrar con la lógica de los botones "Agregar al carrito" de los productos en el carrusel
-// Esto lo haremos al interactuar con cada producto
-
-// Ejemplo de cómo agregar productos (esto se deberá conectar con el botón de agregar carrito en los productos)
-
 
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('agregar-carrito')) {
@@ -122,7 +134,7 @@ document.addEventListener('click', (e) => {
     }
     });
 
-// Función para eliminar un producto del carrito
+// Función para eliminar un producto del carrito 
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('eliminar-producto')) {
         const productoId = e.target.dataset.id;
@@ -130,9 +142,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-
-
-// Función para eliminar un producto del carrito
+// Función para eliminar un producto del carrito (localstorage)
 function eliminarProductoDelCarrito(productoId) {
     const index = carrito.findIndex(p => p.id === productoId);
     if (index !== -1) {
@@ -141,7 +151,7 @@ function eliminarProductoDelCarrito(productoId) {
         actualizarCantidadCarrito();
         mostrarProductosEnCarrito();
     }
-}
+};
 
 
 

@@ -36,20 +36,13 @@
                 <span></span>
             </div>
         </nav>
-        
-        
-        
     </header>
-
     <main>
         <div class="banner">
             <img src="./img/banner2.jpg" alt="Banner Publicitario">
         </div>
-
-
-
- <!-- Modal del Carrito--> 
-<div id="carritoModal" class="modal">
+<!-- Modal del Carrito--> 
+  <div id="carritoModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeCarritoBtn">&times;</span>
         <h2>Carrito de Compras</h2>
@@ -66,10 +59,8 @@
     </div>
 </div>
 
-
-
-
 <!-- Modal Resumen de Compra -->
+ <form id="resumenCompra" action="submit"></form>
 <div id="modalResumenCompra" class="modal-resumen-compra">
     <div class="modal-resumen-compra-content">
         <!-- Encabezado del modal -->
@@ -99,33 +90,20 @@
 
             <!-- Botones de Confirmar y Cancelar -->
             <div class="botones-modal">
-                <button type="submit" id="btnConfirmarCompra">Confirmar</button>
+                <button type="submit" id="btnConfirmarCompra" >Confirmar</button>
                 <button type="button" id="btnCancelarCompra">Cancelar</button>
             </div>
         </form>
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- Modal Gracias -->
+   <div id="modalGracias" class="modalGracias">
+    <div id="modalContent" class="modal-content">
+        <h2 id="modalTitle" class="modal-title">¡Gracias por su compra!</h2>
+        <p id="modalDescription" class="modal-description">Le enviaremos un mensaje cuando su pedido esté listo para retirar.</p>
+    </div>
+</div>
         <section class="carrusel">
             <h2>Golosinas</h2>
             <div class="carrusel-contenedor" id="carrusel-golosinas">
@@ -136,10 +114,9 @@
                 <button class="carrusel-next">→</button>
             </div>
         </section>
-        <div class="banner">
-            <img src="./img/bannerspeed.jpg" alt="Banner Publicitario">
-        </div>
-
+            <div class="banner">
+                <img src="./img/bannerspeed.jpg" alt="Banner Publicitario">
+            </div>
         <section class="carrusel">
             <h2>Bebidas </h2>
             <div class="carrusel-contenedor" id="carrusel-bebidas">
@@ -151,7 +128,6 @@
             </div>
         </section>
     </main>
-
     <footer>
         <div class="footer-superior">
             <div class="columna">
@@ -186,15 +162,11 @@
             <p>&copy; 2024 Nicolas Rigourd. Todos los derechos reservados.</p>
         </div>
     </footer>
-    
-   
-    <script src="java.js"></script>
-    <script src="productos.js"></script>
-    <script src="modalResumen.js"></script>
-    <script src="carrito.js"></script>
-    <script src="modalfinal.js"></script>
-   
-    
+<script src="java.js"></script>
+<script src="productos.js"></script>
+<script src="modalResumen.js"></script>
+<script src="carrito.js"></script>
+
 </body>
 </html>
 
